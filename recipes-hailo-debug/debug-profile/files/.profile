@@ -14,15 +14,15 @@ echo "  | __ | |__ \ | |) | _|| _ \ |_| | (_ | "
 echo "  |_||_|_|___/ |___/|___|___/\___/ \___| "
 
 echo -e "\e[33m"
-head /etc/os-release -n2 | tail -n1 | awk '{printf "     " $1}'
+head /etc/os-release -n2 | tail -n1 | awk '{printf "  " $1}'
 echo ""
 echo -e "\e[31m"
 
 
 if dmesg | grep -qi error; then
-    echo "Errors found:"
-    echo "============="
-    dmesg | grep -i error | awk '{printf "%d. ", NR; for (i=3; i<=NF; i++) printf "%s ", $i; printf "\n"}'
-    echo ""
+	    echo "  Errors found:"
+	        echo "  ============="
+		    dmesg | grep -i error | awk '{printf "  %d. ", NR; for (i=3; i<=NF; i++) printf "%s ", $i; printf "\n"}'
+		        echo ""
 fi
 
