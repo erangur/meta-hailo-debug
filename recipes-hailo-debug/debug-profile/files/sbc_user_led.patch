@@ -1,0 +1,24 @@
+--- .profile	2023-12-19 16:44:09.589678391 +0200
++++ .profile	2023-12-19 16:43:51.889677832 +0200
+@@ -3,6 +3,9 @@
+ alias ls='ls --color=auto'
+ alias grep='grep --color=auto'
+ 
++# Stop blinking (SBC only)
++/etc/init.d/user_led_restore.sh
++
+ # Customizing the prompt
+ PS1='\[\e[1;32m\]\u@\h\e[0m\]:\e[0;33m\w\e[0m\]$ '
+ 
+@@ -21,8 +24,7 @@
+ 
+ if dmesg | grep -qi error; then
+ 	    echo "  Errors found:"
+-	        echo "  ============="
+-		    dmesg | grep -i error | awk '{printf "  %d. ", NR; for (i=3; i<=NF; i++) printf "%s ", $i; printf "\n"}'
+-		        echo ""
++	    echo "  ============="
++		dmesg | grep -i error | awk '{printf "  %d. ", NR; for (i=3; i<=NF; i++) printf "%s ", $i; printf "\n"}'
++		echo ""
+ fi
+-
